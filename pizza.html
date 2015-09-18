@@ -3,43 +3,47 @@
 <html>
   <head>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:500' rel='stylesheet' type='text/css'>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Pizza Place</title>
+    <title>PIZZATRON</title>
   </head>
   <body>
     <div class="container">
-      <h1>Order some pizza!</h1>
+      <div id="top-bar">
+        <h1>PIZZATRON</h1>
+      </div>
+
+      <h3>INPUT PREFERENCES FOR DISC-LIKE HUMAN SUSTENANCE. WITH SAUCE.</h3>
 
       <form id="order">
         <div class="form-group">
-          <label for="size">Size</label>
+          <label for="size">CIRCUMFERENCE</label>
           <select id="size">
-            <option value="small">Small $10.00</option>
-            <option value="medium">Medium $15.00</option>
-            <option value="large">Large $20.00</option>
+            <option value="small">DINNER PLATE $10.00</option>
+            <option value="medium">KICK DRUM $15.00</option>
+            <option value="large">LIBERTY BELL $20.00</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="quantity">Quantity</label>
+          <label for="quantity">QUANTITY</label>
           <input id="quantity" type="number" min="1" placeholder="0" required>
         </div>
 
         <div id="new-toppings">
-          <label for="toppings">Toppings</label>
-          <p>All pizzas come with sauce and cheese. Additional toppings $1.00 each.
+          <label for="toppings">TOPPINGS</label>
+          <p>All pizzas come with sauce and cheese. Pizzatron demands $1.00 for each additional topping.
         </div>
 
-        <button type="button" id="add-topping">Add another topping</button>
-        <div id="price-button">
-          <button type="submit">Price order</button>
-        </div>
+        <button type="button" id="add-topping">ADD TOPPINGS</button><br><br>
+        <button type="submit">CALCULATE DEBT TO PIZZATRON</button>
       </form>
 
+
       <div id="result">
-        <h3>That'll be $<span id="order-price"></span>.00, please!</h3>
+        <h2>PRODUCE $<span id="order-price"></span>.00 FOR PIZZATRON.</h2>
       </div>
     </div>
   </body>

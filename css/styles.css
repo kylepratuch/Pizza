@@ -1,3 +1,13 @@
+body {
+  font-family: 'Roboto Mono', sans-serif;
+}
+
 #result {
   display:none;
+}
+
+#top-bar {
+  color:white;
+  background-color:gray;
+  font-style:italic;
 }
