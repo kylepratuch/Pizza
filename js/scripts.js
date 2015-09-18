@@ -33,9 +33,33 @@ PizzaOrder.prototype.calculatePrice = function() {
   if(this.toppings.length > 0) {
     for(var i = 1; i <= this.toppings.length; i++) {
       orderCost += 1;
-    }  
+    }
   }
 
   var finalPrice = orderCost * this.quantity;
   return finalPrice;
 }
+
+//jQuery
+$(document).ready(function() {
+  //Add additional divs for extra toppings:
+  $("#add-topping").click(function() {
+    $("#more-toppings").append('<div class="additional-topping">' +
+                                '<div class="form-group">' +
+                                  // '<label for="size">Toppings</label>' +
+                                  '<select id="topping">' +
+                                    '<option value="cheese">Extra cheese</option>' +
+                                    '<option value="pepperoni">Pepperoni</option>' +
+                                    '<option value="peppers">Peppers</option>' +
+                                  '</select>' +
+                                '</div>' +
+                              '</div>');
+  });
+
+  $("form#order").submit(function(event) {
+    event.preventDefault();
+
+    var inputtedSize = $("select#size").val();
+    var inputtedQuantity = $("input#quantity")
+  });
+});
