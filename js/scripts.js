@@ -44,22 +44,35 @@ PizzaOrder.prototype.calculatePrice = function() {
 $(document).ready(function() {
   //Add additional divs for extra toppings:
   $("#add-topping").click(function() {
-    $("#more-toppings").append('<div class="additional-topping">' +
-                                '<div class="form-group">' +
-                                  // '<label for="size">Toppings</label>' +
-                                  '<select id="topping">' +
-                                    '<option value="cheese">Extra cheese</option>' +
-                                    '<option value="pepperoni">Pepperoni</option>' +
-                                    '<option value="peppers">Peppers</option>' +
-                                  '</select>' +
-                                '</div>' +
-                              '</div>');
+    $("#new-toppings").append('<div class="new-topping">' +
+                                  '<div class="form-group">' +
+                                    '<select id="topping">' +
+                                      '<option value="cheese">Extra cheese</option>' +
+                                      '<option value="pepperoni">Pepperoni</option>' +
+                                      '<option value="peppers">Peppers</option>' +
+                                    '</select>' +
+                                  '</div>' +
+                                '</div>');
   });
 
   $("form#order").submit(function(event) {
     event.preventDefault();
 
+    var inputtedQuantity = parseInt($("input#quantity").val());
     var inputtedSize = $("select#size").val();
-    var inputtedQuantity = $("input#quantity")
+
+    var newPizzaOrder = new PizzaOrder(inputtedQuantity, inputtedSize);
+
+    $(".new-topping").each(function() {
+      var inputtedDescription = $(this).find("select#topping").val();
+      var newTopping = new Topping(inputtedDescription);
+      newPizzaOrder.addTopping();
+    });
+
+    console.log(newPizzaOrder);
+    var price = newPizzaOrder.calculatePrice();
+    $("#result").show(function() {
+      $("#order-price").text(price);
+    });
   });
 });

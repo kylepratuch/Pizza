@@ -16,35 +16,30 @@
         <div class="form-group">
           <label for="size">Size</label>
           <select id="size">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
+            <option value="small">Small $10.00</option>
+            <option value="medium">Medium $15.00</option>
+            <option value="large">Large $20.00</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="quantity">Quantity</label>
-          <input id="quantity" type="number" min="1">
+          <input id="quantity" type="number" min="1" placeholder="0" required>
         </div>
 
-        <div class="form-group">
-          <label for="topping">Toppings</label>
-          <select id="topping">
-            <option value="cheese">Extra cheese</option>
-            <option value="pepperoni">Pepperoni</option>
-            <option value="peppers">Peppers</option>
-          </select>
-        </div>
-        <div id="more-toppings">
-
+        <div id="new-toppings">
+          <label for="toppings">Toppings</label>
+          <p>All pizzas come with sauce and cheese. Additional toppings $1.00 each.
         </div>
 
         <button type="button" id="add-topping">Add another topping</button>
-        <button type="submit">Price order</button>
+        <div id="price-button">
+          <button type="submit">Price order</button>
+        </div>
       </form>
 
       <div id="result">
-        <h3>That'll be $<span id="order-price">.00, please!</span></h3>
+        <h3>That'll be $<span id="order-price"></span>.00, please!</h3>
       </div>
     </div>
   </body>
