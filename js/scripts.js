@@ -3,7 +3,6 @@
 //Topping object:
 function Topping(toppingName, price) {
   this.toppingName = toppingName;
-  this.price = price;
 }
 
 //PizzaOrder object:
@@ -18,6 +17,25 @@ PizzaOrder.prototype.addTopping = function() {
   this.toppings.push(topping);
 }
 
+//Pizza size determines base price -> add toppings -> multiply by quantity
 PizzaOrder.prototype.calculatePrice = function() {
-  var sizePrices = [10, 15, 20];
+  var topping = new Topping;
+  var orderCost = 0;
+  if(this.pizzaSize === "small") {
+    orderCost += 10;
+  } else if(this.pizzaSize === "medium") {
+    orderCost += 15;
+  } else {
+    orderCost += 20;
+  }
+
+  //Toppings are $1.00 each. Use for loop so changing price per topping is easier.
+  if(this.toppings.length > 0) {
+    for(var i = 1; i <= this.toppings.length; i++) {
+      orderCost += 1;
+    }  
+  }
+
+  var finalPrice = orderCost * this.quantity;
+  return finalPrice;
 }
